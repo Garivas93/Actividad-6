@@ -8,15 +8,15 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  arrUser: User[] = [];
+  arrUsers: User[] = [];
 
   constructor(private usersService: UsersService) {}
 
   async ngOnInit(): Promise<void> {
     let response = await this.usersService.getAll()
-    console.log(response);
-    this.arrUser = response.results
-    console.log(this.arrUser)
+   /*  console.log(response); */
+    this.arrUsers = response.results
+   /*  console.log(this.arrUsers) */
   }
 
 }

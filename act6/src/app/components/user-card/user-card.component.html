@@ -1,0 +1,17 @@
+<div class="card shadow p-2">
+  <div class="justify-content-center">
+    <figure class="card-img-top">
+      <img [src]="elUser.image" [alt]="elUser.first_name" class="w-100" />
+    </figure>
+    <div class="card-body">
+      <h3>{{ elUser.first_name }} {{ elUser.last_name }}</h3>
+      <button [routerLink]="['/usuario', elUser._id]" class="btn">
+        <i class="bi bi-search"></i>
+      </button>
+      <button [routerLink]="['/update', elUser._id]" class="btn">
+        <i class="bi bi-arrow-repeat"></i>
+      </button>
+      <button class="btn"><i class="bi bi-trash s"></i></button>
+    </div>
+  </div>
+</div>

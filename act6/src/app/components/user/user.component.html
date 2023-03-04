@@ -1,1 +1,31 @@
-<p>user works!</p>
+<section class="container mt-3">
+  <div class="card p-3">
+    <div class="row g-0">
+      <figure class="col-md-4">
+        <img
+          [src]="user?.image"
+          [alt]="user?.first_name"
+          class="img-fluid rounded-start"
+        />
+      </figure>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h3 class="fw-bold">
+            {{ user?.first_name }}
+          </h3>
+          <h3 class="fw-bold">
+            {{ user?.last_name }}
+          </h3>
+          <p><span class="fw-bold">User:</span> {{ user?.username }}</p>
+          <p>
+            <span span class="fw-bold">Email: </span>
+            {{ user?.email }}
+          </p>
+          <button>Eliminar</button>
+          <button [routerLink]="['/update', user?._id]">Actualizar</button>
+          <button [routerLink]="['/home']">Volver al listado</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
