@@ -16,8 +16,8 @@ export class FormComponent implements OnInit{
 
   constructor(private usersService: UsersService, private router: Router, private activatedRoute: ActivatedRoute){
     this.userForm = new FormGroup({
-      first_name: new FormControl("",[Validators.required, Validators.minLength(2)]),
-      last_name: new FormControl("",[Validators.required, Validators.minLength(2)]),
+      first_name: new FormControl("",[Validators.required, Validators.pattern(/^[a-zA-Z]+(([\'\,\.\- ][a-zA-Z ])?[a-zA-Z]*)*$/)]),
+      last_name: new FormControl("",[Validators.required, Validators.pattern(/^[a-zA-Z]+(([\'\,\.\- ][a-zA-Z ])?[a-zA-Z]*)*$/)]),
       email: new FormControl("",[Validators.required, Validators.pattern(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)]),
       image: new FormControl("",[Validators.required]),
     },[]);

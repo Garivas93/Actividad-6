@@ -1,4 +1,4 @@
-<section class="container mt-3">
+<section class="container mt-3 mb-5">
   <div class="card p-3">
     <div class="row g-0">
       <figure class="col-md-4">
@@ -21,14 +21,22 @@
             <span span class="fw-bold">Email: </span>
             {{ user?.email }}
           </p>
-          <!-- <button (click)="deleteUserr(user?._id)">Eliminar</button> -->
-          <button
-            (click)="confirmacion(user?._id, user?.first_name, user?.last_name)"
-          >
-            Eliminar
-          </button>
-          <button [routerLink]="['/update', user?._id]">Actualizar</button>
-          <button [routerLink]="['/home']">Volver al listado</button>
+          <div class="d-flex gap-4">
+            <button
+              (click)="
+                confirmacion(user?._id, user?.first_name, user?.last_name)
+              "
+              class="btn btn-dark"
+            >
+              Eliminar
+            </button>
+            <button [routerLink]="['/update', user?._id]" class="btn btn-dark">
+              Actualizar
+            </button>
+            <button [routerLink]="['/home']" class="btn btn-dark">
+              Volver al listado
+            </button>
+          </div>
         </div>
       </div>
     </div>

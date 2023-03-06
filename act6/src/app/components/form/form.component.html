@@ -12,8 +12,8 @@
       <p class="error" *ngIf="checkControl('first_name', 'required')">
         ¡El campo es requerido!
       </p>
-      <p class="error" *ngIf="checkControl('first_name', 'minlength')">
-        El nombre debe contener al menos dos letras
+      <p class="error" *ngIf="checkControl('first_name', 'pattern')">
+        Debe ser un formato correcto de correo
       </p>
     </div>
     <div>
@@ -27,8 +27,8 @@
       <p class="error" *ngIf="checkControl('last_name', 'required')">
         ¡El campo es requerido!
       </p>
-      <p class="error" *ngIf="checkControl('last_name', 'minlength')">
-        El apellido debe contener al menos dos letras
+      <p class="error" *ngIf="checkControl('last_name', 'pattern')">
+        Debe ser un formato correcto de correo
       </p>
     </div>
 
