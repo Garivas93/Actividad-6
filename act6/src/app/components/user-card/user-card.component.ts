@@ -29,4 +29,13 @@ export class UserCardComponent {
     }
     
   }
+
+  async confirmacion(pId: any | undefined, pName: any | undefined, pLName: any | undefined) {
+    let opc:boolean = confirm(`¿Deseas borrar al usuario ${pName} ${pLName}`);
+    if (opc === true){
+     this.deleteUser(pId);
+   }else{
+ 
+   }
+   }
 }

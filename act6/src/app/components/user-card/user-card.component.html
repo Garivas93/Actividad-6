@@ -12,7 +12,12 @@
         <i class="bi bi-arrow-repeat"></i>
       </button>
       <button class="btn">
-        <i class="bi bi-trash s" (click)="deleteUser(elUser._id)"></i>
+        <i
+          class="bi bi-trash s"
+          (click)="
+            confirmacion(elUser._id, elUser.first_name, elUser.last_name)
+          "
+        ></i>
       </button>
     </div>
   </div>
