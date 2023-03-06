@@ -9,14 +9,24 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class HomeComponent {
   arrUsers: User[] = [];
+  currentPage: number =1;
+  totalPages: number =1;
 
   constructor(private usersService: UsersService) {}
 
-  async ngOnInit(): Promise<void> {
-    let response = await this.usersService.getAll()
-   /*  console.log(response); */
+  ngOnInit(): void {
+    this.gotoPage()
+  }
+async gotoPage(pNum: number = 1): Promise<void>{
+  try{
+    let response = await this.usersService.getAll(pNum)
+    console.log(response);
+    this.currentPage = response.page
     this.arrUsers = response.results
-   /*  console.log(this.arrUsers) */
+    this.totalPages = response.total_pages
+  } catch{
+    console.log(Error);
   }
 
+}
 }
