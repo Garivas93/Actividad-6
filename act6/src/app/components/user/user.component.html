@@ -21,7 +21,7 @@
             <span span class="fw-bold">Email: </span>
             {{ user?.email }}
           </p>
-          <button>Eliminar</button>
+          <button (click)="deleteUserr(user?._id)">Eliminar</button>
           <button [routerLink]="['/update', user?._id]">Actualizar</button>
           <button [routerLink]="['/home']">Volver al listado</button>
         </div>

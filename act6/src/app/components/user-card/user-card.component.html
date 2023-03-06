@@ -11,7 +11,9 @@
       <button [routerLink]="['/update', elUser._id]" class="btn">
         <i class="bi bi-arrow-repeat"></i>
       </button>
-      <button class="btn"><i class="bi bi-trash s"></i></button>
+      <button class="btn">
+        <i class="bi bi-trash s" (click)="deleteUser(elUser._id)"></i>
+      </button>
     </div>
   </div>
 </div>
