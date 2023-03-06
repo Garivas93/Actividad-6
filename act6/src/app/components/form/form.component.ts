@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup} from '@angular/forms'
+import {FormGroup, Validators} from '@angular/forms'
 import {FormControl} from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/interfaces/user.interface';
@@ -16,10 +16,10 @@ export class FormComponent implements OnInit{
 
   constructor(private usersService: UsersService, private router: Router, private activatedRoute: ActivatedRoute){
     this.userForm = new FormGroup({
-      first_name: new FormControl("",[]),
-      last_name: new FormControl("",[]),
-      email: new FormControl("",[]),
-      image: new FormControl("",[]),
+      first_name: new FormControl("",[Validators.required, Validators.minLength(2)]),
+      last_name: new FormControl("",[Validators.required, Validators.minLength(2)]),
+      email: new FormControl("",[Validators.required, Validators.pattern(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)]),
+      image: new FormControl("",[Validators.required]),
     },[]);
 
     
@@ -56,7 +56,7 @@ export class FormComponent implements OnInit{
       let response = await this.usersService.update(user);
       console.log(response)
       if (response.id){
-        alert(`Usuario ${response.first_name} con id ${response.id} se ha acutualizado correctamente`)
+        alert(`Usuario ${response.first_name} con id ${response.id} se ha actualizado correctamente`)
         this.router.navigate(['/home'])
       }
 
@@ -74,4 +74,11 @@ export class FormComponent implements OnInit{
       }
   }
   }
+
+checkControl(pControlName: string, pError: string): boolean{
+  if (this.userForm.get(pControlName)?.hasError(pError) &&
+  this.userForm.get(pControlName)?.touched
+){ return true}
+return false
+}
 }

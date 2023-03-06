@@ -9,6 +9,12 @@
         id="first_name"
         formControlName="first_name"
       />
+      <p class="error" *ngIf="checkControl('first_name', 'required')">
+        ¡El campo es requerido!
+      </p>
+      <p class="error" *ngIf="checkControl('first_name', 'minlength')">
+        El nombre debe contener al menos dos letras
+      </p>
     </div>
     <div>
       <label for="last_name" class="form-label">Apellido</label>
@@ -18,6 +24,12 @@
         id="last_name"
         formControlName="last_name"
       />
+      <p class="error" *ngIf="checkControl('last_name', 'required')">
+        ¡El campo es requerido!
+      </p>
+      <p class="error" *ngIf="checkControl('last_name', 'minlength')">
+        El apellido debe contener al menos dos letras
+      </p>
     </div>
 
     <div>
@@ -28,6 +40,12 @@
         id="email"
         formControlName="email"
       />
+      <p class="error" *ngIf="checkControl('email', 'required')">
+        ¡El campo es requerido!
+      </p>
+      <p class="error" *ngIf="checkControl('email', 'pattern')">
+        Debe ser un formato correcto de correo
+      </p>
     </div>
 
     <div>
@@ -38,8 +56,16 @@
         id="image"
         formControlName="image"
       />
+      <p class="error" *ngIf="checkControl('image', 'required')">
+        ¡El campo es requerido!
+      </p>
     </div>
-    <button type="submit" value="Guardar" class="btn btn-dark mt-3">
+    <button
+      type="submit"
+      value="Guardar"
+      class="btn btn-dark mt-3"
+      [disabled]="!userForm.valid"
+    >
       Guardar
     </button>
   </form>
